@@ -98,7 +98,6 @@ def delete():
     if request.method == "POST":
         delete_id = request.form("delete_id")
         db.session.delete().where(db.id == delete_id)
-
         db.session.commit()
     else:
         return render_template('delete.html')
