@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-column">
+            <div class="header-menu">
+                <div class="header-menu__item">
+                    <a href="">About</a>
+                </div>
+                <div class="header-menu__item">
+                    <a href="../catalog">Catalog</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-column">
+            <div class="header-logo">
+                <a href="../">
+                    MEBEL
+                </a>
+                <img src="/static/img/crown.png" alt="">
+            </div>
+        </div>
+        <div class="header-column">
+            <div class="header-menu">
+                <div class="header-menu__item">
+                    <a href="">Cart</a>
+                </div>
+                <div class="header-menu__item">
+                    <a href="">Contacts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__frame"></div>
+</div>
+    <div class="wrapper">
+        <div class="makeanorder">
+            <div class="makeanorder__image">
+                <img src="/static/img/makeanorder.jpg" alt="">
+            </div>
+            <div class="makeanorder-body">
+                <div class="makeanorder__title title">Become our customer</div>
+                <div class="makeanorder__info info">Equip your home with high-quality furniture without problems. Beautiful things don't have to be expensive.</div>
+                <a href="../cart" class="makeanorder__btn makeanorder__btn_1 btn_1 btn">Make an order</a>
+                <a href="../catalog" class="makeanorder__btn makeanorder__btn_2 btn_2 btn">View catalog</a>
+            </div>
+        </div>   
+    </div>
+    <div class="container">
+        <div class="catalog__title">Recommended products</div>
+        
+        <form action="#" method="post">
+        <div class="catalog-sort">
+            <div class="catalog-sort__button"><img src="../static/img/icon/sort.png" alt=""></div>
+            <ul class="catalog-sort__subtitle">
+                <li class="catalog-sort__list"><input type="button" name="popularity" value="popularity" /></li>
+                <li class="catalog-sort__list"><input type="button" name="Price (Ascending)" value="Price (Ascending)" /></li>
+                <li class="catalog-sort__list"><input type="button" name="Price (Ascending)" value="Price (Descending)" /></li>
+            </ul>
+        </div>
+        </form>
+        <div class="catalog__border"></div>
+        <div class="catalog">
+            {% for item in items %}
+                {% if (item.popularity == 1 or item.popularity == 2) %}
+                    <div class="catalog__item">
+                        <div class="catalog__image"><img src="../static/img/{{item.img}}" alt=""></div>
+                        <a href="" class="catalog__info">
+                            <div class="catalog__name">"{{ item.title }}"</div>
+                            <div class="catalog__price">{{ item.price }}$</div>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="why">
+            <div class="why__text">Why CHOOSE us?</div>
+            <div class="why__image"><img src="/static/img/why.jpg" alt=""></div>
+        </div>
+        <div class="answer-blok">
+            <div class="container">
+                <div class="answer">
+                    <div class="answer-column">
+                        <div class="answer__icon"><img src="/static/img/icon/couch.png" alt=""></div>
+                        <div class="answer-text">
+                            <div class="answer__title">Always high quality</div>
+                            <div class="answer__info">Fresh, seasonal and simple cuisine. Food is our business and our passion.</div>
+                        </div>
+                    </div>
+                    <div class="answer-column">
+                        <div class="answer__icon"><img src="/static/img/icon/box.png" alt=""></div>
+                        <div class="answer-text">
+                            <div class="answer__title">The fastest delivery</div>
+                            <div class="answer__info">Successful catering is about organisation, high quality service, and great food.</div>
+                        </div>
+                    </div>
+                    <div class="answer-column">
+                        <div class="answer__icon"><img src="/static/img/icon/reviews.png" alt=""></div>
+                        <div class="answer-text">
+                            <div class="answer__title">Lots of reviews</div>
+                            <div class="answer__info">We use only the best organic ingredients and gluten and dairy free cooking.</div>
+                        </div>
+                    </div>
+                    <div class="answer-column">
+                        <div class="answer__icon"><img src="/static/img/icon/free-delivery.png" alt=""></div>
+                        <div class="answer-text">
+                            <div class="answer__title">Free shipping</div>
+                            <div class="answer__info">We are able to serve events from 2 to 2000 guests and always at reasonable prices.</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+
+<div class="wrapper">
+    <div class="footer">
+        <ul class="footer-contacts">
+            <li class="footer-contacts__item footer-contacts__item_title">OOO MEBEL</li>
+            <li class="footer-contacts__item">Contact us:</li>
+            <li class="footer-contacts__item">mebelius@gmail.com</li>
+            <li class="footer-contacts__item">+7 (999) 999-99-99</li>
+            <li class="footer-contacts__item footer-contacts__item_link"><a href="">Сообщить о нарушении</a></li>
+        </ul>
+    </div>
+</div></body>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/catalog.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--@import "header.html"-->
+
+   <div class="container">
+        <div class="catalog">
+            {% for cat in categories %}
+                <div class="catalog__category">{{ cat }}</div>
+                <div class="catalog-products">
+                {% for item in items %}
+                    {% if item.category == cat %}
+                        <div class="catalog__item">
+                            <div class="catalog__image"><img src="../static/img/{{item.img}}" alt=""></div>
+                            <a href="" class="catalog__info">
+                                <div class="catalog__name">"{{ item.title }}"</div>
+                                <div class="catalog__price">{{ item.price }}$</div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+   </div>
+    
+    <!--@import "footer.html"-->
+</body>
+</body>
+</html>

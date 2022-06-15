@@ -1,0 +1,299 @@
+//<Подключаем шрифты>
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans&display=swap");
+
+@font-face {
+    font-family: "Akzidenz Grotesk BQ";
+    src: url('/static/fonts/AkzidenzGroteskBQ-BdCnd.eot');
+    src: url('/static/fonts/AkzidenzGroteskBQ-BdCnd.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/AkzidenzGroteskBQ-BdCnd.woff') format('woff'),
+        url('/static/fonts/AkzidenzGroteskBQ-BdCnd.ttf') format('truetype'),
+        url('/static/fonts/AkzidenzGroteskBQ-BdCnd.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+//<Подключаем шрифты>
+
+//<Шрифт по умолчанию>
+$fontfamily: "PT Sans";
+//<Шрифт по умолчанию>
+
+//<Переменные>
+$minwidth:320px;
+$mw:880px;
+$md1:$mw+12px;
+$md2:750px;
+$md3:767.98px;
+$md4:479.98px;
+
+$fontfamily1: "Bebas Neue";
+$fontfamily2: "Akzidenz Grotesk BQ";
+
+$color1:#ffffff;
+$color2:#d5d6d2;
+$color3:#3a5199;
+$color4:#2f2e33;
+//<Переменные>
+
+//<Обнуление>
+* {padding: 0;margin: 0;border: 0;}
+*,*:before,*:after {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active {outline: none;}
+a:focus,a:active {outline: none;}
+nav, footer, header, aside {display: block;}
+html, body{height: 100%;margin: 0;padding: 0;min-width: none;position: relative;width: 100%;color: #000;
+}
+body{font-size: 100%;font-family: $fontfamily; ;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+input,button,textarea {font-family: $fontfamily;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img {vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+//<Обнуление>
+
+//<Основная сетка>
+.container{max-width:$mw;margin:0 auto;width:100%;
+    @media (max-width:$md1){max-width: 750px;}
+    @media (max-width:$md2){max-width: none;padding: 0 10px;}
+}
+//<Основная сетка>
+
+//<Подключение файлов стилей страниц и элементов>
+@import "header.scss";
+@import "footer.scss";
+//<Подключение файлов стилей страниц и элементов>
+
+//<Основной код>=========================================================================================
+body{
+    padding: 30px 0 0 0;
+    background-color: $color1;
+}
+
+.title{
+    font-family: $fontfamily2;
+    font-size: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.btn {
+    display: inline-block;
+    font-family: "Bebas Neue";
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.btn_1 {
+    text-align: center;
+    line-height: 50px;
+    width: 150px;
+    height: 50px;
+}
+
+.btn_2 {
+    text-decoration: underline;
+}
+
+.makeanorder{
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    border: 1px solid #000;
+
+    &__image{
+        min-width: 683px;
+		min-height: 425px;
+		flex: 1 1 50%;
+        
+        img{
+            min-width: 683px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &-body{
+        min-width: 683px;
+		min-height: 425px;
+		width: 50%;
+		height: 425px;
+		padding: 75px 60px;
+    }
+    &__title{
+        color: #fff;
+        width: 300px;
+    }
+    &__info{
+        width: 350px;
+        margin: 25px 0;
+        color: #fff;
+        font-size: 15px;
+        line-height: 25px;
+    }
+    &__btn {
+        margin:50px 0 0 0;
+		color: #000;
+    }
+    &__btn_1 {
+        letter-spacing: 0.1em;
+        margin: 0 14px 0 0;
+        background-color: #ffffff;
+    }
+    &__btn_2 {
+        color: #fffffe;
+        text-decoration: underline;
+}
+}
+
+.catalog{
+    margin:30px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-sort{
+        display: flex;
+        &__button{
+            flex: 0 0 50px;
+            transition: transform 0.6s ease;
+            display: inline-block;
+            transform: rotate(360deg);
+            border: 3px solid #000;
+            border-radius: 50%;
+
+            & img{
+                height: 50px;
+                width: 50px;
+            }
+            &:hover{
+                transform: rotate(0);
+            }
+        }
+        &__subtitle{
+            display: flex;
+            flex: 1 1 auto;
+        }
+        &__list{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 33.333%;
+            margin: 0 3px;
+
+            & input{
+                font-size: 16px;
+                text-transform: uppercase;
+                background: #fff;
+
+                &:hover{
+                    transition: all 50ms ease;
+                    transform: rotate(-4deg);
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    &__border{
+        height: 5px;
+        width: 200px;
+        background-color: #000;
+        margin: 30px auto;
+        border-radius: 20%;
+    }
+    &__title{
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+        margin: 60px 0 30px 0;
+    }
+    &__item{
+        margin:0 0 20px 0;
+        flex: 0 0 25%;
+    }
+    &__image img{
+        width: 100%;
+        border: 1px solid $color4;
+    }
+    &__name{
+        text-align: center;
+        margin:15px 0 5px 0;
+        font-family: $fontfamily1;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    &__price{
+        text-align: center;
+        margin:0 0 5px 0;
+        font-family: $fontfamily1;
+        font-size: 18px;
+    }
+    &__info{
+        display: block;
+        color: #000;
+        border: 1px solid $color4;
+    }
+}
+
+.why{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    padding: 50px;
+    overflow: hidden;
+    margin:20px 0 0 0;
+    background-color: #000;
+
+    &__text{
+        flex: 0 1 100%;
+        margin: 0 61px 0 0;
+        text-align: center;
+        font-family: $fontfamily2;
+        font-size: 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+    }
+    &__image{
+        width: 50%;
+    }
+}
+.answer-blok{
+    height: 350px;
+    background-color: $color2;
+    padding: 50px 0;
+
+}
+.answer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &-column{
+        display: flex;
+        align-items: center;
+        flex: 0 0 50%;
+        height: 130px;
+    }
+    &__icon img{
+        width: 100px;
+        margin: 10px 20px 10px 10px;
+    }
+    &__title{
+        font-family: $fontfamily2;
+        font-size: 25px;
+        line-height: 25px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #000000;
+    }
+    &__info{
+        font-size: 15px;
+        line-height: 25px;
+    }
+}
+
+//===================================================================================================
