@@ -1,6 +1,5 @@
 from flask import Flask, redirect, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import delete
 
 ########################################
 
@@ -98,6 +97,7 @@ def delete():
     if request.method == "POST":
         delete_id = request.form("delete_id")
         db.session.delete().where(db.id == delete_id)
+        
         db.session.commit()
     else:
         return render_template('delete.html')
