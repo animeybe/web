@@ -46,22 +46,6 @@ class Item(db.Model):
 
 categories = ["Sofas", "Tables", "Beds"]
 
-tables = [
-    {"img": "tables_1.jpg", "name": "Mini-Modern", "price": "500", "popularity": "3"},
-    {"img": "tables_2.jpg", "name": "Child of the Sun", "price": "700", "popularity": "2"},
-    {"img": "tables_3.jpg", "name": "Color Parent", "price": "650", "popularity": "1"},
-    {"img": "tables_4.jpg", "name": "The Red Lady", "price": "950", "popularity": "4"}
-]
-
-beds = [
-    {"img": "beds_1.jpg", "name": "White Prince", "price": "1500", "popularity": "1"},
-    {"img": "beds_2.jpg", "name": "Mini-Modern", "price": "500", "popularity": "5"},
-    {"img": "beds_3.jpg", "name": "Child of the Sun", "price": "700", "popularity": "2"},
-    {"img": "beds_4.jpg", "name": "Color Parent", "price": "650", "popularity": "4"},
-    {"img": "beds_5.jpg", "name": "The Red Lady", "price": "950", "popularity": "3"}
-]
-
-
 @app.route('/')
 def index():
     items = Item.query.order_by(Item.popularity).all()
