@@ -19,7 +19,7 @@
                     {% if item.category == cat %}
                         <div class="catalog__item">
                             <div class="catalog__image"><img src="../static/img/{{item.img}}" alt=""></div>
-                            <a href="" class="catalog__info">
+                            <a href="{{ url_for('product', id=item.id) }}" class="catalog__info">
                                 <div class="catalog__name">"{{ item.title }}"</div>
                                 <div class="catalog__price">{{ item.price }}$</div>
                             </a>

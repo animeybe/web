@@ -56,6 +56,23 @@ def catalog():
     items = Item.query.order_by(Item.price).all()
     return render_template('catalog.html', items = items, categories = categories)
 
+@app.route('/profile', methods=['POST', 'GET'])
+def profile():
+    return render_template('profile.html')
+
+@app.route('/<id>', methods=['POST', 'GET'])
+def product(id):
+    items = Item.query.order_by(Item.popularity).all()
+    return render_template('product.html', items = items)
+
+@app.route('/delivery', methods=['POST', 'GET'])
+def delivery():
+    return render_template('delivery.html')
+
+@app.route('/cart', methods=['POST', 'GET'])
+def cart():
+    return render_template('cart.html')
+
 @app.route('/create', methods=['POST', 'GET'])
 def create():
     if request.method == "POST":

@@ -13,10 +13,10 @@
         <div class="header-column">
             <div class="header-menu">
                 <div class="header-menu__item">
-                    <a href="">About</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
                 </div>
                 <div class="header-menu__item">
-                    <a href="../catalog">Catalog</a>
+                    <a href="{{ url_for('catalog') }}">Catalog</a>
                 </div>
             </div>
         </div>
@@ -31,10 +31,10 @@
         <div class="header-column">
             <div class="header-menu">
                 <div class="header-menu__item">
-                    <a href="">Cart</a>
+                    <a href="{{ url_for('cart') }}">Cart</a>
                 </div>
                 <div class="header-menu__item">
-                    <a href="">Contacts</a>
+                    <a href="{{ url_for('delivery') }}">Delivery</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     {% if item.category == cat %}
                         <div class="catalog__item">
                             <div class="catalog__image"><img src="../static/img/{{item.img}}" alt=""></div>
-                            <a href="" class="catalog__info">
+                            <a href="{{ url_for('product', id=item.id) }}" class="catalog__info">
                                 <div class="catalog__name">"{{ item.title }}"</div>
                                 <div class="catalog__price">{{ item.price }}$</div>
                             </a>
