@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, request, session
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, abort
 
 ########################################
 
@@ -76,12 +76,14 @@ def create():
         return render_template('create.html')
 
     
-@app.route('/delete',methods=["GET", "POST"])
+@app.route('/delete', methods=['POST', 'GET'])
 def delete():
     if request.method == "POST":
-        delete_id = request.form("delete_id")
-        db.session.delete().where(db.id == delete_id)
+        delete_id = request.form["delete_id"]
+        itm = Item.query.filter_by(id = delete_id).first()
         
+        db.session.delete(itm)
         db.session.commit()
+        return redirect("/delete")
     else:
         return render_template('delete.html')
