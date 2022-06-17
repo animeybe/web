@@ -70,6 +70,7 @@ def create():
         try:
             db.session.add(item)
             db.session.commit()
+            return redirect("/create")
         except:
             return "Получилась ошибка"
     else:
