@@ -2,34 +2,6 @@ from flask import Flask, redirect, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy, abort
 
 ########################################
-
-def heapify(arr, n, i, condition):
-    largest = i
-    l = 2 * i + 1
-    r = 2 * i + 2
-
-    if l < n and int(arr[i][condition]) < int(arr[l][condition]):
-        largest = l
-
-    if r < n and int(arr[largest][condition]) < int( arr[r][condition]):
-        largest = r
-
-    if largest != i:
-        arr[i],arr[largest] = arr[largest],arr[i]
-
-        heapify(arr, n, largest, condition)
-
-def heapSort(arr, condition):
-    n = len(arr)
-
-    for i in range(n, -1, -1):
-        heapify(arr, n, i, condition)
-
-    for i in range(n-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]
-        heapify(arr, i, 0, condition)
-
-########################################
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
