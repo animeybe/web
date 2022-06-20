@@ -13,7 +13,7 @@
         <div class="header-column">
             <div class="header-menu">
                 <div class="header-menu__item">
-                    <a href="{{ url_for('profile') }}">Profile</a>
+                    <a href="{{ url_for('delivery') }}">Delivery</a>
                 </div>
                 <div class="header-menu__item">
                     <a href="{{ url_for('catalog') }}">Catalog</a>
@@ -34,14 +34,43 @@
                     <a href="{{ url_for('cart') }}">Cart</a>
                 </div>
                 <div class="header-menu__item">
-                    <a href="{{ url_for('delivery') }}">Delivery</a>
+                    {% if current_user.is_anonymous %}
+                        <a href="{{ url_for('login') }}">Login</a>
+                    {% else %}
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
     <div class="header__frame"></div>
 </div>
-   
+   <div class="wrapper">
+        <div class="content">
+            <div class="geninf">
+                <div class="geninf-img"><img src="../static/img/{{item.img}}" alt=""></div>
+                <div class="geninf-text">
+                    <div class="geninf-title">{{ item.title }}</div>
+                    <div class="geninf-price">{{ item.price }}$</div>
+                    <div class="geninf-inf">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae mollitia deserunt laudantium excepturi, rerum harum vero quos, fugiat dolorum et cupiditate eaque quibusdam saepe sapiente enim tenetur! Earum, eveniet ut?</div>
+                    <a href="{{ url_for('add_to_cart', product_id=item.id) }}" class="geninf-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Add to Cart
+                    </a>
+                    <a href="" class="geninf-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+    </div>
+   </div>
     
 <div class="wrapper">
     <div class="footer">

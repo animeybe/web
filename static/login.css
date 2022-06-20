@@ -155,6 +155,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
+  flex: 0 0 auto;
   height: 250px;
   width: 100%;
   background: #c3c4c0;
@@ -192,4 +193,27 @@ h1, h2, h3, h4, h5, h6 {
 body {
   padding: 30px 0 0 0;
   background-color: #ffffff;
+}
+
+.sign {
+  font-family: "Akzidenz Grotesk BQ";
+}
+
+.sign-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 960px;
+  height: 300px;
+  margin: 0 auto;
+  padding: 30px 0;
+  border: 1px solid #000;
+  border-radius: 30px;
+}
+
+.sign-title {
+  font-size: 30px;
+  font-family: "Bebas Neue";
 }

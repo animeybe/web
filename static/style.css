@@ -154,6 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
+  flex: 0 0 auto;
   height: 250px;
   width: 100%;
   background: #c3c4c0;

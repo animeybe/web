@@ -3,7 +3,7 @@
         <div class="header-column">
             <div class="header-menu">
                 <div class="header-menu__item">
-                    <a href="{{ url_for('profile') }}">Profile</a>
+                    <a href="{{ url_for('delivery') }}">Delivery</a>
                 </div>
                 <div class="header-menu__item">
                     <a href="{{ url_for('catalog') }}">Catalog</a>
@@ -24,7 +24,11 @@
                     <a href="{{ url_for('cart') }}">Cart</a>
                 </div>
                 <div class="header-menu__item">
-                    <a href="{{ url_for('delivery') }}">Delivery</a>
+                    {% if current_user.is_anonymous %}
+                        <a href="{{ url_for('login') }}">Login</a>
+                    {% else %}
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

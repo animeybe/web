@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/login.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-column">
+            <div class="header-menu">
+                <div class="header-menu__item">
+                    <a href="{{ url_for('delivery') }}">Delivery</a>
+                </div>
+                <div class="header-menu__item">
+                    <a href="{{ url_for('catalog') }}">Catalog</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-column">
+            <div class="header-logo">
+                <a href="../">
+                    MEBEL
+                </a>
+                <img src="/static/img/crown.png" alt="">
+            </div>
+        </div>
+        <div class="header-column">
+            <div class="header-menu">
+                <div class="header-menu__item">
+                    <a href="{{ url_for('cart') }}">Cart</a>
+                </div>
+                <div class="header-menu__item">
+                    {% if current_user.is_anonymous %}
+                        <a href="{{ url_for('login') }}">Login</a>
+                    {% else %}
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__frame"></div>
+</div>
+    <div class="sign">
+        <div class="sign-window">
+            <div class="sign-title">Sign In</div>
+            <form action="" method="post"  novalidate>
+                {{ form.hidden_tag() }}
+                <div class="sign-username">
+                    {{ form.username.label }}<br>
+                    {{ form.username(size=32) }}<br>
+                    {% for error in form.username.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+                <div class="sign-password">
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=32) }}<br>
+                    {% for error in form.password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+                <div class="sign-remember">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+                <div class="sign-btn">{{ form.submit() }}</div>
+                <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+            </form>
+        </div>
+    </div>
+
+<div class="wrapper">
+    <div class="footer">
+        <ul class="footer-contacts">
+            <li class="footer-contacts__item footer-contacts__item_title">OOO MEBEL</li>
+            <li class="footer-contacts__item">Contact us:</li>
+            <li class="footer-contacts__item">mebelius@gmail.com</li>
+            <li class="footer-contacts__item">+7 (999) 999-99-99</li>
+            <li class="footer-contacts__item footer-contacts__item_link"><a href="">Сообщить о нарушении</a></li>
+        </ul>
+    </div>
+</div></body>
+</html>
