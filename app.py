@@ -160,7 +160,7 @@ def create():
         try:
             db.session.add(item)
             db.session.commit()
-            return redirect("url_for('create')")
+            return redirect(url_for('create'))
         except:
             return "Получилась ошибка"
     else:
@@ -171,7 +171,7 @@ def create():
 def delete():
     if request.method == "POST":
         delete_id = request.form["delete_id"]
-        itm = User.query.filter_by(id = delete_id).first()
+        itm = Item.query.filter_by(id = delete_id).first()
         
         db.session.delete(itm)
         db.session.commit()
