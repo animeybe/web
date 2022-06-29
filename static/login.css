@@ -225,25 +225,49 @@ body {
   color: green;
 }
 
-.sign-form {
+.sign-form form {
   display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
   align-items: center;
   text-align: center;
 }
 
-.sign-username {
+.sign__username {
   margin: 0 0 20px 0;
 }
 
-.sign-password {
+.sign__password {
+  margin: 0 0 20px 0;
+}
+
+.sign__remember {
   margin: 0 0 10px 0;
 }
 
-.sign-remember {
-  margin: 0 0 20px 0;
+.sign__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+  color: #000;
+  background: #fff;
 }
 
-.sign-remember {
-  margin: 0 0 20px 0;
+.sign__btn:hover {
+  transition: 1s;
+  color: #fff;
+  background: #000;
+}
+
+.sign__btn:hover {
+  transition: 2s;
+  border: 1px solid #fff;
+}
+
+.reg a {
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: underline;
 }

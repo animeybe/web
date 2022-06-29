@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/catalog.css">
+    <link rel="stylesheet" href="/static/delivery.css">
     <title>Document</title>
 </head>
 <body>
@@ -45,7 +45,22 @@
     </div>
     <div class="header__frame"></div>
 </div>
-    
+    <div class="delivery">
+        <div class="delivery__title">delivery</div>
+        <img class="fly_img" src="/static/img/fly.png" alt="">
+        <div class="delivery-block">
+            <div class="delivery-block__title">We will quickly deliver any of your orders to anywhere in the world</div>
+            <ul class="delivery-block-advantage">
+                <li><img src="/static/img/icon/delivery_1.png" alt="">Fast delivery</li>
+                <li><img src="/static/img/icon/delivery_2.png" alt="">Delivery all year round worldwide</li>
+                <li><img src="/static/img/icon/delivery_3.png" alt="">Return of goods in the first month</li>
+            </ul>
+            <a onclick="(document.getElementById('map').style.display='block')" class="delivery-block__btn">Select a pick-up point</a>
+        </div>
+        <div class="delivery__points">1 486</div>
+        <div class="delivery__pick-up">points of delivery</div>
+        <div style="display:none;" class="delivery__map" id="map" style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/dalnevostochny_federalny_universitet/1047571026/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Дальневосточный федеральный университет</a><a href="https://yandex.ru/maps/11409/primorsky-krai/category/university_college/184106140/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">ВУЗ в Приморском крае</a><iframe src="https://yandex.ru/map-widget/v1/-/CCUN48hxLA" width="100%" height="600" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+    </div>
     
 <div class="wrapper">
     <div class="footer">
