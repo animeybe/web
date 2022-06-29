@@ -75,11 +75,12 @@ body{
 }
 
 .sign{
-    
     font-family: $fontfamily2;
+    color: $color1;
 
     &-window{
         display:flex;
+        flex: 1 0 auto;
         flex-direction:column;
         align-items: center;
         justify-content: space-between;
@@ -88,11 +89,36 @@ body{
         height: 300px;
         margin: 0 auto;
         padding: 30px 0;
-        border: 1px solid #000;
+        background: #000;
         border-radius: 30px;
     }
     &-title{
         font-size: 30px;
         font-family: $fontfamily1;
+        flex: 0 0 auto;
+    }
+    &-msg{
+        color: green;
+    }
+    &-form{
+        display: flex;
+        flex: 1 0 auto;
+        align-items: center;
+        text-align: center;
+    }
+    &-username{
+        margin: 0 0 20px 0;
+    }
+    &-password{
+        margin: 0 0 10px 0;
+    }
+    &-remember{
+        margin: 0 0 20px 0;
+    }
+    &-remember{
+        margin: 0 0 20px 0;
+    }
+    &-btn{
+        
     }
 }

@@ -131,17 +131,48 @@ def product(id):
 @login_required
 def cart():
     if not session.get('cart'):
-        session['cart'] = []
-    return render_template('cart.html', cart=session['cart'])
+        session['cart'] = {}
+    items = []
+    sum = 0
+    for i in session['cart']:
+        item = Item.query.get(i)
+        items.append(item)
+    for i in items:
+        i.id = str(i.id)
+        sum += i.price * session["cart"][(i.id)]
+    return render_template('cart.html', items=items, sum = sum)
 
 @app.route('/cart/<int:product_id>', methods=['POST', 'GET'])
 @login_required
 def add_to_cart(product_id):
+    id = str(product_id)
+    
     if not session.get('cart'):
-        session['cart'] = []
-    session['cart'].append(product_id)
+        session["cart"] = {}
+        
+    if id in session['cart']:
+        session['cart'][id] += 1
+        session.modified = True
+    else:
+        session['cart'][id] = 1
+        session.modified = True
+     
     return redirect(url_for('cart'))
 
+@app.route('/cart_delete/<int:product_id>', methods=['POST', 'GET'])
+@login_required
+def delete_to_cart(product_id):
+    id = str(product_id)
+        
+    if id in session['cart'] and session['cart'][id] == 1:
+        del session['cart'][id]
+        session.modified = True
+    elif id in session['cart'] and not (session['cart'][id] == 1):
+        session['cart'][id] -= 1
+        session.modified = True
+        
+    return redirect(url_for('cart'))
+    
 @app.route('/delivery', methods=['POST', 'GET'])
 def delivery():
     return render_template('delivery.html')
@@ -171,7 +202,7 @@ def create():
 def delete():
     if request.method == "POST":
         delete_id = request.form["delete_id"]
-        itm = Item.query.filter_by(id = delete_id).first()
+        itm = User.query.filter_by(id = delete_id).first()
         
         db.session.delete(itm)
         db.session.commit()

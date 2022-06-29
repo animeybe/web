@@ -122,7 +122,7 @@ body{
         display: block;
         padding: 25px 30px;
         margin: 40px 0;
-        color: #934FFA;
+        color: $color1;
         text-transform: uppercase;
         transition: 0.5s;
         letter-spacing: 4px;
@@ -130,9 +130,9 @@ body{
         margin-right: 50px;
 
         &:hover{
-            background: #934FFA;
-            color: #050801;
-            box-shadow: 0 0 5px #934FFA, 0 0 25px #934FFA, 0 0 50px #934FFA, 0 0 20px #934FFA;
+            background: $color1;
+            color: #000;
+            box-shadow: 0 0 5px $color1, 0 0 25px $color1, 0 0 50px $color1, 0 0 20px $color1;
             -webkit-box-reflect: below 1px list-gradient(transparent, #0005);
         }
         &:nth-child(1){
@@ -149,7 +149,7 @@ body{
                 left: 0;
                 width: 100%;
                 height: 2px;
-                background: linear-gradient(90deg, transparent,#934FFA);
+                background: linear-gradient(90deg, transparent,$color1);
                 animation: animate1 1s linear infinite;
             }
             &:nth-child(2){
@@ -157,7 +157,7 @@ body{
                 right: 0;
                 width: 2px;
                 height: 100%;
-                background: linear-gradient(180deg, transparent,#934FFA);
+                background: linear-gradient(180deg, transparent,$color1);
                 animation: animate2 1s linear infinite;
                 animation-delay: 0.125s;
             }
@@ -166,7 +166,7 @@ body{
                 right: 0;
                 width: 100%;
                 height: 2px;
-                background: linear-gradient(270deg, transparent,#934FFA);
+                background: linear-gradient(270deg, transparent,$color1);
                 animation: animate3 1s linear infinite;
                 animation-delay: 0.5s;
             }
@@ -175,7 +175,7 @@ body{
                 left: 0;
                 width: 2px;
                 height: 100%;
-                background: linear-gradient(360deg, transparent,#934FFA);
+                background: linear-gradient(360deg, transparent,$color1);
                 animation: animate4 1s linear infinite;
                 animation-delay: 0.75s;
             }

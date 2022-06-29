@@ -45,9 +45,37 @@
     </div>
     <div class="header__frame"></div>
 </div>
-    {% for item in cart %}
-        {{item}}
-    {% endfor %}
+    <div class="container">
+        <div class="text">
+            Before ordering, carefully read the dimensions and delivery times on the product page!
+        </div>
+    </div>
+
+    <div class="block">
+        {% if session['cart'] == {} %}
+            <div class="block-clear">
+                <div class="clear">Your shopping cart is empty</div>
+                <a href="{{ url_for('catalog')}}" class="btn">View products</a>
+            </div>
+            {% else %}
+            <div class="cart">
+                {% for item in items %}
+                <div class="cart__item">
+                    <div class="cart__image"><img src="../static/img/{{item.img}}" alt=""></div>
+                    <a class="cart__trash" href="{{ url_for('delete_to_cart', product_id=item.id) }}"><img src="../static/img/icon/trash.png" alt=""></a>
+                    <div class="cart__info">
+                        <div class="cart__name">"{{ item.title }}"</div>
+                        <div class="cart__price">{{ item.price }}$ x {{ session['cart'][item.id] }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="block-bottom">
+                <a href="" class="cart__btn">Place an order</a>
+                <div class="cart__sum">Total sum - {{sum}}$</div>
+            </div>
+        {% endif %}
+    </div>
     
 <div class="wrapper">
     <div class="footer">
